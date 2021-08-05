@@ -13,14 +13,11 @@ import random
 a = input("Введите а: ")
 b = input("Введите b: ")
 
-chars = 'a b c d e f g h i j k l m n o p q r s t u v w x y z'.split()
-
 data_type = None
+chars = 'abcdefghijklmnopqrstuvwxyz'
 if a in chars:
+    a, b = map(ord, (a, b))
     data_type = 'char'
-    a, b = a.lower(), b.lower()
-    a = chars.index(a)
-    b = chars.index(b)
 else:
     a, b = map(float, (a, b))
     data_type = 'int' if (a % 1 == 0 and b % 1 == 0) else 'float'
@@ -31,6 +28,6 @@ if data_type == 'float':
 else:
     result = round(result)
     if data_type == 'char':
-        result = chars[result]
+        result = chr(result)
 
 print(result)
