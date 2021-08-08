@@ -10,7 +10,7 @@ A = [random.randint(-100, 100) for _ in range(10)]
 print(A)
 
 B = [a for a in A if a < 0]
-num = random.choice(B)
+num = B[0]
 for i in B:
     if i > num:
         num = i
