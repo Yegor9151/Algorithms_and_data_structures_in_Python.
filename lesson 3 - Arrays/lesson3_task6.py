@@ -8,26 +8,21 @@ import random
 A = [random.randint(0, 100) for _ in range(10)]
 print(A)
 
-min_a = A[0]
-max_a = A[0]
-for i in A:
-    if i < min_a:
-        min_a = i
-    if i > max_a:
-        max_a = i
+min_i = 0
+max_i = 0
+for i in range(len(A)):
+    if A[min_i] > A[i]:
+        min_i = i
+    if A[max_i] < A[i]:
+        max_i = i
+
+print(A[max_i], A[min_i])
 
 # General
-min_idx, max_idx = 0, 0
-for i in range(len(A)):
-    if A[i] == max_a:
-        max_idx = i
-    if A[i] == min_a:
-        min_idx = i
-
-if min_idx > max_idx:
-    min_idx, max_idx = max_idx, min_idx
+if min_i > max_i:
+    min_idx, max_idx = max_i, min_i
 
 result = 0
-for i in A[min_idx + 1: max_idx]:
+for i in A[min_i + 1: max_i]:
     result += i
-print(f'Сумма чисел между {min_a} и {max_a} = {result}')
+print(f'Сумма чисел между {A[min_i]} и {A[max_i]} = {result}')
