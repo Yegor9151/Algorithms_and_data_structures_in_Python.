@@ -9,17 +9,14 @@ import random
 A = [random.randint(0, 10) for _ in range(10)]
 print(A)
 
-first = A[0]
-second = A[1]
+first_i = 0
+second_i = 1
 
-# General
-for i in A:
-    if first > i:
-        first = i
-A.remove(first)
+for i in range(len(A)):
+    if A[first_i] > A[i]:
+        first_i = i
+for i in range(len(A)):
+    if A[second_i] > A[i] and i != first_i:
+        second_i = i
 
-for i in A:
-    if second > i:
-        second = i
-
-print(first, second)
+print(A[first_i], A[second_i])
