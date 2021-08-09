@@ -9,20 +9,17 @@ import random
 A = [random.randint(0, 10) for _ in range(10)]
 print(A)
 
-result = random.choice(A)
-for i in A:
-    if result < i:
-        result = i
+first = A[0]
+second = A[1]
 
 # General
-result = [result] * 2
 for i in A:
-    if result[0] > i:
-        result[0] = i
+    if first > i:
+        first = i
+A.remove(first)
 
-A.remove(result[0])
 for i in A:
-    if result[1] > i:
-        result[1] = i
+    if second > i:
+        second = i
 
-print(result)
+print(first, second)
