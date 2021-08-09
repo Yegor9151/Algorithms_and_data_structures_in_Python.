@@ -9,14 +9,8 @@ import random
 A = [random.randint(-100, 100) for _ in range(10)]
 print(A)
 
-B = [a for a in A if a < 0]
-num = B[0]
-for i in B:
-    if i > num:
-        num = i
-
-idx = 0
+min_i = 0
 for i in range(len(A)):
-    if A[i] == num:
-        idx = i
-print(f'Максималье отрицательное число {num}, имеет индекс {idx}')
+    if A[i] < 0 and A[i]**2 < A[min_i]**2:
+        min_i = i
+print(A[min_i])
