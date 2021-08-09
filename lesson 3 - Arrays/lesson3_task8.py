@@ -3,17 +3,19 @@
 Программа должна вычислять сумму введенных элементов каждой строки и записывать ее в последнюю ячейку строки.
 В конце следует вывести полученную матрицу.
 """
+import random
 
 matrix = []
 for _ in range(4):
     row = []
+    sum_row = 0
     for column in range(5):
         if column < 4:
-            row.append(int(input()))
+            # num = random.randint(0, 10)
+            num = int(input())
+            sum_row += num
+            row.append(num)
         else:
-            sum_row = 0
-            for i in row:
-                sum_row += i
             row.append(sum_row)
     matrix.append(row)
 
