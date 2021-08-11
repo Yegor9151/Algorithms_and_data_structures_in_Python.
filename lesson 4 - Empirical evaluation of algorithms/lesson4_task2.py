@@ -57,10 +57,6 @@ def sieve(n):
     return array[-1]
 
 
-# N = 10
-# print(prime(N))
-# print(sieve(N))
-
 # cProfile.runctx('prime(1000)', globals(), locals())
 # cProfile.runctx('sieve(1000)', globals(), locals())
 """
