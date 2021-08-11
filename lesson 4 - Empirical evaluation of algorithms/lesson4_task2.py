@@ -58,21 +58,32 @@ def sieve(n):
 
 
 # cProfile.runctx('prime(1000)', globals(), locals())
-# cProfile.runctx('sieve(1000)', globals(), locals())
+cProfile.runctx('sieve(1000)', globals(), locals())
 """
         prime
     timeit:
 (n=10) = 1000 loops, best of 5: 4.82 usec per loop
     cProfile:
-1    0.038    0.038    0.040    0.040 lesson4_task2.py:26(prime)
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.032    0.032 <string>:1(<module>)
+        1    0.031    0.031    0.032    0.032 lesson4_task2.py:26(prime)
+        1    0.000    0.000    0.032    0.032 {built-in method builtins.exec}
+     7918    0.001    0.000    0.001    0.000 {built-in method builtins.len}
+      999    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
 
         sieve
     timeit:
 (n=10) = 1000 loops, best of 5: 94.3 usec per loop
     cProfile:
-1       8.562    8.562   10.630   10.630 lesson4_task2.py:40(sieve)
-7918    0.998    0.000    0.998    0.000 lesson4_task2.py:44(<listcomp>)
-7918    1.067    0.000    1.067    0.000 lesson4_task2.py:53(<listcomp>)
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   10.366   10.366 <string>:1(<module>)
+        1    8.318    8.318   10.366   10.366 lesson4_task2.py:40(sieve)
+     7918    0.990    0.000    0.990    0.000 lesson4_task2.py:44(<listcomp>)
+     7918    1.055    0.000    1.055    0.000 lesson4_task2.py:53(<listcomp>)
+        1    0.000    0.000   10.366   10.366 {built-in method builtins.exec}
+     7918    0.002    0.000    0.002    0.000 {built-in method builtins.len}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
 
 На больших числах проваерять не стал, слишком болго sieve паботает
 """
