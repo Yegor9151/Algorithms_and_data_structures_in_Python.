@@ -61,7 +61,7 @@ def sieve(n):
 # print(prime(N))
 # print(sieve(N))
 
-cProfile.runctx('prime(1000)', globals(), locals())
+# cProfile.runctx('prime(1000)', globals(), locals())
 # cProfile.runctx('sieve(1000)', globals(), locals())
 """
         prime
