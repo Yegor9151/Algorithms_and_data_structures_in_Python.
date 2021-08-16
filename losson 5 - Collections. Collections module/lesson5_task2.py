@@ -24,7 +24,7 @@ left, right = action.split(operator)
 left = deque([array16.index(i) for i in left if i != ' '])
 right = deque([array16.index(i) for i in right if i != ' '])
 
-if len(left) != len(right):
+while len(left) != len(right):
     left.appendleft(0) if len(left) < len(right) else right.appendleft(0)
 
 left.reverse()
