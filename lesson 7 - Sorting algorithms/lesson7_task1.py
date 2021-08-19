@@ -18,9 +18,9 @@ def bubble_rock_sort(arr):
     half = arr_len // 2
     for n in range(1, half + 1 if arr_len % 2 else half):
         for i in range(arr_len - n):
-            if arr[i] > arr[i + 1]:
+            if arr[i] < arr[i + 1]:
                 arr[i], arr[i + 1] = arr[i + 1], arr[i]
-            if arr[arr_len - 1 - i] < arr[arr_len - 2 - i]:
+            if arr[arr_len - 1 - i] > arr[arr_len - 2 - i]:
                 arr[arr_len - 1 - i], arr[arr_len - 2 - i] = arr[arr_len - 2 - i], arr[arr_len - 1 - i]
         print(arr)
 
