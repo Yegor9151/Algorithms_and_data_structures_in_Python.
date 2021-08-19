@@ -30,4 +30,5 @@ print('start >', array)
 shaker_sort(array)
 print('result >', array)
 
-print(array[len(array) // 2])
+median = array[len(array) // 2]
+print('\nmedian =', median)
