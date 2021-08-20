@@ -13,7 +13,27 @@ import random
 array = [random.randint(-100, 99) for _ in range(random.randint(5, 15))]
 
 
-def bubble_rock_sort(arr):
+def bubble_sort(arr):
+    arr_len = len(arr)
+    for n in range(1, arr_len):
+        print(arr)
+        stop = True
+        for i in range(arr_len - n):
+            if arr[i] < arr[i + 1]:
+                arr[i], arr[i + 1] = arr[i + 1], arr[i]
+                stop = False
+        if stop:
+            break
+
+
+"""
+При сортировке правой части, левая может оказаться частично отсортированной,
+поэтому я решил сделать перекрестную сортировку, что бы за один прогон сортировать массив как справа, так и слева.
+Эта функция похожа на шейкер только не гоняет числа по массиву взад вперед, а одновременно сводит их к центру.
+"""
+
+
+def bubble_cross_sort(arr):
     arr_len = len(arr)
     half = arr_len // 2
     for n in range(1, half + 1 if arr_len % 2 else half):
@@ -25,6 +45,13 @@ def bubble_rock_sort(arr):
         print(arr)
 
 
+"""
+для эксперимента попробовал 2 вариента, перекрестная сортировка оказалась быстрее
+"""
 print('start >', array)
-bubble_rock_sort(array)
+bubble_sort(array)
+print('result >', array)
+print()
+print('start >', array)
+bubble_cross_sort(array)
 print('result >', array)
