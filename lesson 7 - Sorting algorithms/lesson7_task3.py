@@ -10,25 +10,18 @@
 import random
 
 array = [random.randint(0, 100) for _ in range(random.randint(2, 7) * 2 + 1)]
+print('array =', array)
 
 
-def shaker_sort(arr):
-    arr_len = len(arr)
-    half = arr_len // 2
-
-    for n in range(1, half + 1 if arr_len % 2 else half):
-        for i in range(arr_len - n):
-            if arr[i] > arr[i + 1]:
-                arr[i], arr[i + 1] = arr[i + 1], arr[i]
-        for j in range(arr_len - 1 - n, n - 1, -1):
-            if arr[j] < arr[j - 1]:
-                arr[j], arr[j - 1] = arr[j - 1], arr[j]
-        print(arr)
+def median(arr):
+    for i in arr:
+        less, more = [], []
+        for j in arr:
+            more.append(j) if j > i else less.append(j)
+        if len(less) == len(more) + 1:
+            return max(less)
+        elif len(less) + 1 == len(more):
+            return min(more)
 
 
-print('start >', array)
-shaker_sort(array)
-print('result >', array)
-
-median = array[len(array) // 2]
-print('\nmedian =', median)
+print('median =', median(array))
