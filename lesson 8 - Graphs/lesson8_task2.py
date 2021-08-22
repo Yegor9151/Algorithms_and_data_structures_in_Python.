@@ -75,4 +75,4 @@ def result(s):
         print(f'{w[i]} - стоимость пути = {v}')
 
 
-result(7)
+result(int(input("Введите стартовую вершину:")))
