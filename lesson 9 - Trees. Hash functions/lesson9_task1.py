@@ -12,7 +12,7 @@ import hashlib
 
 
 def substring_count(string: str) -> int:
-    result = 0
+    h_sub_list = []
     h_space = hashlib.sha1(' '.encode('utf-8')).hexdigest()
 
     for len_sub in range(1, len(string)):
@@ -22,9 +22,13 @@ def substring_count(string: str) -> int:
             p_sub = string[i:i + len_sub].encode('utf-8')
             h_sub = hashlib.sha1(p_sub).hexdigest()
 
-            result += 0 if h_space == h_sub else 1
+            if h_sub != h_space:
+                h_sub_list.append(h_sub)
+
+    result = len(set(h_sub_list))
 
     return result
 
 
 print(substring_count("My cat - Vasiliy"))
+print(substring_count("Hello world!"))
